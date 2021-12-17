@@ -9,7 +9,7 @@ const tokenSecret = "my-token-secret"
 
 const middleware = require('../middlewares')
 
-router.get('/login', (req, res) => {
+router.post('/login', (req, res) => {
     User.findOne({email: req.body.email})
     .then(user => {
         if(!user) res.status(404).json({error: 'no user with that email found'})
